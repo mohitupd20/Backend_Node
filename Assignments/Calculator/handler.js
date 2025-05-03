@@ -22,8 +22,8 @@ const requestHadler = (req, res) => {
         <body>
         <h1>Here is the Calculator</h1>
         <form action="/calculate-result" method="POST">
-            <input type="text" id="num1" placeholder="Enter first number">
-            <input type="text" id="num2" placeholder="Enter second number">
+            <input type="text" name="first" placeholder="Enter first number">
+            <input type="text" name="second" placeholder="Enter second number">
             <input type="submit" value="Sum">
         </form>
         </body>
@@ -31,7 +31,7 @@ const requestHadler = (req, res) => {
     return res.end();
   } else if (req.url === "/calculate-result" && req.method === "POST") {
     SumRequestHandler(req, res);
-    return;
+    return SumRequestHandler(req, res);
   }
 
   res.setHeader("Content-Type", "text/html");
