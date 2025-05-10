@@ -6,7 +6,7 @@ const rootDir = require("../utils/pathUtils");
 hostRouter.get("/add-home", (req, res, next) => {
   res.sendFile(path.join(rootDir, "views/addHome.html"));
 });
-
+const houseNames = [];
 hostRouter.post("/add-home", (req, res, next) => {
   console.log(
     "POST request received for /add-home",
@@ -14,7 +14,10 @@ hostRouter.post("/add-home", (req, res, next) => {
     req.url,
     req.body
   );
+  houseNames.push({HouseName: req.body.houseName});
+
   res.sendFile(path.join(rootDir, "views", "homeAdded.html"));
 });
 
-module.exports = hostRouter;
+exports.hostRouter = hostRouter;
+exports.houseNames = houseNames;

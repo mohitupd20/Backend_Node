@@ -1,8 +1,12 @@
 const express = require("express");
-const userRouter = require("./routes/userRouter");
-const hostRouter = require("./routes/hostRouter");
-const rootDir = require("./utils/pathUtils");
+const path = require("path");
 const app = express(); 
+const rootDir = require("./utils/pathUtils");
+app.use(express.static(path.join(__dirname, "public")));
+const userRouter = require("./routes/userRouter");
+
+const {hostRouter} = require("./routes/hostRouter");
+
 app.use(express.urlencoded());
 app.use(userRouter);
 app.use("/host", hostRouter);  //Handeling common Path
