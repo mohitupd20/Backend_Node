@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-50 min-h-screen">
+    <header>
+      <h2
+        class="text-4xl text-red-600 font-extrabold text-center mt-10 mb-8 drop-shadow-lg"
+      >
+        Here are our registered homes
+      </h2>
+    </header>
+
+    <main class="max-w-xl mx-auto bg-white rounded-xl shadow-lg p-8">
+      <ul class="mb-8">
+        <% registeredHomes.forEach(home =>{ %>
+        <li
+          class="text-2xl text-blue-700 font-semibold mb-4 border-b border-gray-200 pb-2"
+        >
+          <%= home.registeredHomes %>
+        </li>
+        <% }) %>
+      </ul>
+      <a
+        href="/host/add-home"
+        class="block w-full text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow transition duration-200"
+        >Add Home</a
+      >
+    </main>
+  </body>
+</html>

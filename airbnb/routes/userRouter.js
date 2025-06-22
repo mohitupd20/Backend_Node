@@ -2,11 +2,10 @@ const path = require("path");
 const express = require("express");
 const userRouter = express.Router();
 const rootDir = require("../utils/pathUtils");
-const { houseNames } = require("./hostRouter");
+const { registeredHomes } = require("./hostRouter");
 userRouter.get("/", (req, res, next) => {
-  console.log(houseNames);
-  res.sendFile(path.join(rootDir, "views", "home.html"));
-  // res.sendFile(path.join(__dirname, "../", "views", "home.html"));
+  console.log(registeredHomes);
+  res.render("home", { registeredHomes: registeredHomes }); //we can directly like this {registeredHomes} instead of {registeredHomes: registeredHomes} this means that the key and value are same
 });
 
 module.exports = userRouter;
