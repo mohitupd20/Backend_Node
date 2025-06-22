@@ -16,10 +16,11 @@ hostRouter.post("/add-home", (req, res, next) => {
     req.url,
     req.body
   );
-  registeredHomes.push({ registeredHomes: req.body.registeredHomes });
+  registeredHomes.push(req.body);
 
-  res.render('homeAdded', {
-    pageTitle: "Home Added Successfully"})
+  res.render("homeAdded", {
+    pageTitle: "Home Added Successfully",
+  });
 });
 
 exports.hostRouter = hostRouter;
