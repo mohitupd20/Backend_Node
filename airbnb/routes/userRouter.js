@@ -6,6 +6,7 @@ const { houseNames } = require("./hostRouter");
 userRouter.get("/", (req, res, next) => {
   console.log(houseNames);
   res.sendFile(path.join(rootDir, "views", "home.html"));
+  // res.sendFile(path.join(__dirname, "../", "views", "home.html"));
 });
 
 module.exports = userRouter;
