@@ -1,14 +1,14 @@
-<%- include('partials/head') %>
+<%- include('../partials/head') %>
   </head>
   <body>
-    <%- include('partials/nav') %>
-    <main class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10 max-w-2xl">
+    <%- include('../partials/nav') %>
+    <main class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10 w-full">
       <h2 class="text-3xl text-red-500 font-bold text-center mb-8">
         Here are our registered homes:
       </h2>
-      <div class="grid gap-8">
+      <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         <% registeredHomes.forEach(home => { %>
-          <div class="bg-gradient-to-br from-blue-50 to-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 border border-gray-200">
+          <div class="bg-gradient-to-br from-blue-50 to-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 border border-gray-200 flex flex-col h-full max-w-md mx-auto">
             <% if (home.image) { %>
               <img src="<%= home.image %>" alt="Home image" class="w-full h-56 object-cover rounded-xl mb-4 border border-gray-300 shadow-sm" />
             <% } %>
@@ -16,14 +16,14 @@
               <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6"/></svg>
               <%= home.registeredHomes %>
             </h3>
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-2">
-              <div class="text-gray-600 mb-2 sm:mb-0">
+            <div class="flex flex-col flex-grow">
+              <div class="text-gray-600 mb-2">
                 <span class="font-semibold">Location:</span> <%= home.location || 'N/A' %>
               </div>
-              <div class="text-gray-600 mb-2 sm:mb-0">
+              <div class="text-gray-600 mb-2">
                 <span class="font-semibold">Price/night:</span> Rs.<%= home.pricePerNight || 'N/A' %>
               </div>
-              <div class="flex items-center gap-1 text-yellow-500">
+              <div class="flex items-center gap-1 text-yellow-500 mb-2">
                 <span class="font-semibold text-gray-600">Rating:</span>
                 <% if (home.rating) { %>
                   <%= home.rating %>
@@ -31,6 +31,13 @@
                 <% } else { %>
                   N/A
                 <% } %>
+              </div>
+              <div class="mt-auto flex justify-end">
+                <form action="/book/<%= home._id %>" method="POST">
+                  <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 transition">
+                    Book
+                  </button>
+                </form>
               </div>
             </div>
           </div>

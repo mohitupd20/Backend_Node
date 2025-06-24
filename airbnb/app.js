@@ -7,14 +7,14 @@ app.use(express.static(path.join(__dirname, "public")));
 const userRouter = require("./routes/userRouter");
 
 const {hostRouter} = require("./routes/hostRouter");
-const HomeController = require("./controllers/homes");
+const errorController = require("./controllers/error404");
 
 app.use(express.urlencoded());
 app.use(userRouter);
 app.use("/host", hostRouter);  //Handeling common Path
 app.use(hostRouter)
 
-app.use(HomeController.post404);
+app.use(errorController.post404);
 
 app.listen(3000, () => {
   console.log("Server is running on http://localhost:3000");
