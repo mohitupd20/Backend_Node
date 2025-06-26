@@ -5,9 +5,16 @@ exports.getAddHome = (req, res, next) => {
   });
 };
 
-exports.postAddHome = (req, res, next) => {
- 
+exports.getHostHomes = (req, res, next) => {
+  Home.fetchAll((registeredHomes) => {
+    res.render("host/host-home-list", {
+      registeredHomes: registeredHomes,
+      pageTitle: "Home List",
+    });
+  });
+};
 
+exports.postAddHome = (req, res, next) => {
   //   const Home = new Home (
   //     req.body.registeredHomes,
   //     req.body.pricePerNight,
@@ -32,6 +39,3 @@ exports.postAddHome = (req, res, next) => {
     pageTitle: "Home Added Successfully",
   });
 };
-
-
-

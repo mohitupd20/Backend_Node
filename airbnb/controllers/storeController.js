@@ -14,7 +14,7 @@ exports.getIndex = (req, res, next) => {
 };
 
 exports.getResisteredHomes = (req, res, next) => {
-  const registeredHomes = Home.fetchAll((registeredHomes) => {
+  Home.fetchAll((registeredHomes) => {
     res.render("store/home-list", {
       registeredHomes: registeredHomes,
       pageTitle: "Home List",
@@ -39,10 +39,8 @@ exports.getFavouriteList = (req, res, next) => {
       registeredHomes: registeredHomes,
       pageTitle: "My Favourite List",
     });
-  })};
-
-
-
+  });
+};
 
 // (req, res, next) => {
 //   res.render("store/favourite-list", {
