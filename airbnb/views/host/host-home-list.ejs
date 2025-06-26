@@ -4,7 +4,7 @@
     <%- include('../partials/nav') %>
     <main class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10 max-w-2xl">
       <h2 class="text-3xl text-red-500 font-bold text-center mb-8">
-        Here are our registered homes:
+        Hey! Host Here are Your Registered Homes
       </h2>
       <div class="grid gap-8">
         <% registeredHomes.forEach(home => { %>
@@ -32,11 +32,10 @@
                   N/A
                 <% } %>
               </div>
-              <div class="mt-4 flex justify-end">
-                <form action="/book/<%= home._id %>" method="POST">
-                  <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 transition">
-                    Book
-                  </button>
+              <div class="mt-4 flex justify-end gap-2">
+                <a href="/host/edit-home/<%= home._id %>" class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition">Edit</a>
+                <form action="/host/delete-home/<%= home._id %>" method="POST" style="display:inline;">
+                  <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 transition">Delete</button>
                 </form>
               </div>
             </div>
