@@ -2,11 +2,12 @@
   </head>
   <body>
     <%- include('../partials/nav') %>
-    <main class="container mx-auto mt-8 p-4">
-      <div class="bg-white shadow-md rounded-lg p-6 text-center">
-        <h1 class="text-3xl font-bold text-red-500 mb-4">Home Registered Successfully</h1>
-        <p class="text-lg text-gray-600">Your home has been added to our listings.</p>
-        <a href="/" class="inline-block mt-6 bg-red-500 text-white py-2 px-4 rounded hover:bg-red-400 transition duration-300">Return to Home</a>
+    <main class="container mx-auto mt-16 flex flex-col items-center justify-center min-h-[60vh]">
+      <div class="bg-white shadow-2xl rounded-2xl p-10 max-w-lg w-full flex flex-col items-center">
+        <svg class="w-20 h-20 text-green-400 mb-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        <h1 class="text-4xl font-extrabold text-green-500 mb-4">Home Registered!</h1>
+        <p class="text-lg text-gray-600 mb-8">Your home has been added to our listings. Thank you for hosting with us!</p>
+        <a href="/host/host-home-list" class="bg-gradient-to-r from-green-500 to-blue-500 text-white py-3 px-8 rounded-lg font-semibold shadow-lg hover:from-green-600 hover:to-blue-600 transition duration-300">View My Homes</a>
       </div>
     </main>
   </body>
