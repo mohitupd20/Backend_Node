@@ -1,52 +1,67 @@
-<header class="bg-red-500 text-white p-4 shadow-md">
+<header
+  class="bg-gradient-to-r from-red-500 to-pink-500 text-white p-4 shadow-xl sticky top-0 z-50"
+>
   <nav class="container mx-auto flex justify-between items-center">
-    <ul class="flex space-x-4">
-      <li>
-        <a
-          href="/"
-          class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
-          >Airbnb</a
-        >
-      </li>
+    <div class="flex items-center gap-3">
+      <svg
+        class="w-8 h-8 text-white drop-shadow"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6"
+        />
+      </svg>
+      <a
+        href="/"
+        class="text-2xl font-extrabold tracking-tight hover:text-pink-200 transition"
+        >Airbnb</a
+      >
+    </div>
+    <ul class="flex space-x-2 md:space-x-4 font-semibold text-lg">
       <li>
         <a
           href="/host/add-home"
-          class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
+          class="hover:bg-pink-400 py-2 px-4 rounded transition duration-300"
           >Add Home</a
         >
       </li>
       <li>
         <a
           href="/homes"
-          class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
+          class="hover:bg-pink-400 py-2 px-4 rounded transition duration-300"
           >Home List</a
         >
       </li>
       <li>
         <a
           href="/favourite-list"
-          class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
-          >Favourate List</a
+          class="hover:bg-pink-400 py-2 px-4 rounded transition duration-300"
+          >Favourite List</a
         >
       </li>
       <li>
         <a
           href="/booking"
-          class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
+          class="hover:bg-pink-400 py-2 px-4 rounded transition duration-300"
           >Booking</a
         >
       </li>
       <li>
         <a
           href="/store/reserve"
-          class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
+          class="hover:bg-pink-400 py-2 px-4 rounded transition duration-300"
           >Reserve</a
         >
       </li>
       <li>
         <a
           href="/host/host-home-list"
-          class="hover:bg-red-400 py-2 px-4 rounded transition duration-300"
+          class="hover:bg-pink-400 py-2 px-4 rounded transition duration-300"
           >Host Home</a
         >
       </li>
