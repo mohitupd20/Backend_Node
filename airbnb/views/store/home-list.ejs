@@ -3,7 +3,7 @@
   <body>
     <%- include('../partials/nav') %>
     <main class="container mx-auto bg-white shadow-2xl rounded-2xl p-10 mt-10 w-full">
-      <h2 class="text-5xl text-red-500 font-extrabold text-center mb-12 tracking-tight drop-shadow">All Registered Homes</h2>
+       <h2 class="text-5xl text-red-500 font-extrabold text-center mb-12 tracking-tight drop-shadow">All Registered Homes</h2>
       <div class="grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         <% if (registeredHomes.length === 0) { %>
           <div class="col-span-full text-center text-gray-400 text-2xl py-20">
@@ -38,7 +38,9 @@
               </div>
               <div class="mt-6 flex justify-end">
                 <form action="/book/<%= home._id %>" method="POST">
+                  
                   <button type="submit" class="px-6 py-2 bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-xl font-semibold shadow hover:from-red-600 hover:to-pink-600 transition">Book</button>
+                  <a href="/homes/<%= home.id %>" class="ml-4 px-4 py-2 border border-gray-300 rounded-xl text-blue-600 hover:underline transition">View Details</a>
                 </form>
               </div>
             </div>

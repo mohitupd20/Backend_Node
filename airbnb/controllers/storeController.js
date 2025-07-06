@@ -47,3 +47,18 @@ exports.getFavouriteList = (req, res, next) => {
 //     pageTitle: "My Favourite List",
 //   });
 // };
+
+exports.getHomeDetails = (req, res, next) => {
+  const homeId = req.params.homeId;
+  Home.fetchAll((registeredHomes) => {
+    const home = registeredHomes.find((h) => h.id === homeId);
+    if (home) {
+      res.render("store/home-detail", {
+        home: home,
+        pageTitle: "Home Details",
+      });
+    } else {
+      res.status(404).render("404", { pageTitle: "Home Not Found" });
+    }
+  });
+}

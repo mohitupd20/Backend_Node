@@ -14,6 +14,7 @@ module.exports = class Home {
     this.image = image;
   }
   save() {
+    this.id = Math.random().toString();
     Home.fetchAll((registeredHomes) => {
       registeredHomes.push(this);
       const homeDataPath = pathUtils.join(rootDir, "data", "homes.json");
