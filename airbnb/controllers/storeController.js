@@ -51,11 +51,13 @@ exports.getFavouriteList = (req, res, next) => {
 exports.getHomeDetails = (req, res, next) => {
   const homeId = req.params.homeId;
   Home.fetchById(homeId, (home) => {
-    console.log("Home found: ", home);
-
-    res.render("store/home-detail", {
-      home: home,
-      pageTitle: "Home Details",
-    });
+    if (!home) {
+      res.redirect("/homes");
+    } else {
+      res.render("store/home-detail", {
+        home: home,
+        pageTitle: "Home Details",
+      });
+    }
   });
 };

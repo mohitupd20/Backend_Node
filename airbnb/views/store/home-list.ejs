@@ -39,7 +39,7 @@
               <div class="mt-6 flex justify-end">
                 <form action="/book/<%= home._id %>" method="POST">
                   
-                  <button type="submit" class="px-6 py-2 bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-xl font-semibold shadow hover:from-red-600 hover:to-pink-600 transition">Book</button>
+                  <%- include('../partials/favourite', {home: home}) %>
                   <a href="/homes/<%= home.id %>" class="ml-4 px-4 py-2 border border-gray-300 rounded-xl text-blue-600 hover:underline transition">View Details</a>
                 </form>
               </div>
