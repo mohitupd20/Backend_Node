@@ -1,4 +1,5 @@
 const Home = require("../models/home");
+const Favourite = require("../models/favourite");
 exports.getAddHome = (req, res, next) => {
   res.render("host/addHome", {
     pageTitle: "Register Your Home on AirBnB",
@@ -34,10 +35,16 @@ exports.getbookings = (req, res, next) => {
   });
 };
 exports.getFavouriteList = (req, res, next) => {
-  const registeredHomes = Home.fetchAll((registeredHomes) => {
-    res.render("store/favourite-list", {
-      registeredHomes: registeredHomes,
-      pageTitle: "My Favourite List",
+  Favourite.getFavourites((favourites) => {
+    Home.fetchAll((registeredHomes) => {
+      const favouriteHomes = registeredHomes.filter((home) =>
+        favourites.includes(home.id)
+      );
+      res.render("store/favourite-list", {
+        favouriteHomes: favouriteHomes,
+        pageTitle: "My Favourites",
+        currentPage: "favourites",
+      });
     });
   });
 };
@@ -47,6 +54,15 @@ exports.getFavouriteList = (req, res, next) => {
 //     pageTitle: "My Favourite List",
 //   });
 // };
+exports.addToFavouriteList = (req, res, next) => {
+  console.log("Adding to favourites", req.body);
+  Favourite.addToFavourite(req.body.Id, (err) => {
+    if (err) {
+      console.error("Error adding to favourites", err);
+    }
+    res.redirect("/favourite-list");
+  });
+};
 
 exports.getHomeDetails = (req, res, next) => {
   const homeId = req.params.homeId;

@@ -29,17 +29,13 @@ module.exports = class Home {
   }
   static fetchAll(callback) {
     fs.readFile(homeDataPath, (err, data) => {
-      console.log("file Read: ", err, data);
       callback(err ? [] : JSON.parse(data)); //to remove async issues, we can use callback function
     });
   }
   static fetchById(homeId, callback) {
-    this.fetchAll(Homes => {
-      const HomeFound = Homes.find(home => home.id === homeId);
+    this.fetchAll((Homes) => {
+      const HomeFound = Homes.find((home) => home.id === homeId);
       callback(HomeFound);
-      
     });
-    
   }
-  
 };
