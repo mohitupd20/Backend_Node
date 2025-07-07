@@ -14,19 +14,25 @@ module.exports = class Home {
     this.image = image;
   }
   save() {
-    this.id = Math.random().toString();
     Home.fetchAll((registeredHomes) => {
-      registeredHomes.push(this);
+      if (this.id) {
+        // edit home case
 
-      fs.writeFile(homeDataPath, JSON.stringify(registeredHomes), (err) => {
-        if (err) {
-          console.error("Error writing to file", err);
-        } else {
-          console.log("Home data saved successfully");
-        }
+        registeredHomes = registeredHomes.map((home) =>
+          home.id === this.id ? this : home
+        );
+      } else {
+        // add home case
+        this.id = Math.random().toString();
+        registeredHomes.push(this);
+      }
+
+      fs.writeFile(homeDataPath, JSON.stringify(registeredHomes), (error) => {
+        console.log("File Writing Concluded", error);
       });
     });
   }
+
   static fetchAll(callback) {
     fs.readFile(homeDataPath, (err, data) => {
       callback(err ? [] : JSON.parse(data)); //to remove async issues, we can use callback function

@@ -33,7 +33,7 @@
                 <% } %>
               </div>
               <div class="mt-4 flex justify-end gap-2">
-                <a href="/host/edit-home/<%= home._id %>" class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition">Edit</a>
+                <a href="/host/edit-home/<%= home.id %>?editing=true" class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition">Edit</a>
                 <form action="/host/delete-home/<%= home._id %>" method="POST" style="display:inline;">
                   <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 transition">Delete</button>
                 </form>
