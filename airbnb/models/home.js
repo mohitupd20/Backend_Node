@@ -38,6 +38,19 @@ module.exports = class Home {
       callback(err ? [] : JSON.parse(data)); //to remove async issues, we can use callback function
     });
   }
+
+  static deleteById(id, callback) {
+    this.fetchAll((homes) => {
+      const updatedHomes = homes.filter((home) => home.id !== id);
+      fs.writeFile(homeDataPath, JSON.stringify(updatedHomes), (err) => {
+        if (err) {
+          callback(err);
+        } else {
+          callback(null);
+        }
+      });
+    });
+  }
   static fetchById(homeId, callback) {
     this.fetchAll((Homes) => {
       const HomeFound = Homes.find((home) => home.id === homeId);
